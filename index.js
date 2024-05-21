@@ -1,15 +1,16 @@
 //This file will make the test in desktop view
 const puppeteer = require("puppeteer");
 
-const url = "https://geoportal.siata.gov.co/geoportal/";
+const url = "https://siata.gov.co/siata_nuevo/";
 
 async function testGeoportal() {
   const browser = await puppeteer.launch({
-    headless: true, // Esto hace que el navegador sea headful
+    headless: true, // Esto hace que el navegador sea headless
   });
   const page = await browser.newPage();
   await page.goto(url, { waitUntil: "networkidle2", timeout: 900000 });
 
+  //Selector for the min temperature forecast
   const minTemperatureForecast =
     "#root > div > div:nth-child(1) > div > div.header-app > div._forecastContainer_7wr00_2 > div._forecast__desktop_7wr00_27._container__open_7wr00_37 > div.forecastWidget__report-wrapper.MuiBox-root.css-0 > div.forecastWidget__temperature-wrapper > div > section:nth-child(1) > div > div";
 
@@ -27,7 +28,7 @@ async function testGeoportal() {
     performanceTiming.loadEventEnd - performanceTiming.navigationStart;
   console.log(`Page load time: ${loadTime} ms`);
 
-  // Espera 5 segundos antes de cerrar el navegador
+  // Espera 10 segundos antes de cerrar el navegador
   setTimeout(async () => {
     await browser.close();
   }, 10000);
