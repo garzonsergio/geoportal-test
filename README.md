@@ -70,9 +70,10 @@ node index.js
 
 1. Abre el archivo `index.js` en un editor de texto.
 2. Modifica la constante `url` con la URL de la página web que deseas probar.
-3. Modifica las constantes `totalInstances` y `batchSize` para ajustar el número total de pruebas(navegadores) y el tamaño de los lotes, respectivamente.
-4. Guarda y cierra el archivo `index.js`.
-5. En tu terminal, navega al directorio del proyecto y ejecuta `node index.js` para iniciar las pruebas.
+3. Modifica la constante `isMobile` a `true` si se requiere probar en la versión mobile de la aplicación web o mantenerlo en `false` para escritorio.
+4. Modifica las constantes `totalInstances` y `batchSize` para ajustar el número total de pruebas(navegadores) y el tamaño de los lotes, respectivamente.
+5. Guarda y cierra el archivo `index.js`.
+6. En tu terminal, navega al directorio del proyecto y ejecuta `node index.js` para iniciar las pruebas.
 
 El script imprimirá el tiempo de carga de la página para cada prueba y notificará cuando cada lote se complete.
 
