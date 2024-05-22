@@ -6,8 +6,14 @@ const url = "https://siata.gov.co/siata_nuevo/";
 async function testGeoportal() {
   const browser = await puppeteer.launch({
     headless: true, // Esto hace que el navegador sea headless
+    // devtools: false, //Esto abre las herramientas de desarrollador
   });
   const page = await browser.newPage();
+
+  // Set the viewport to 375x667 (iPhone X)
+  // await page.setViewport({ width: 375, height: 667 });
+
+  //Ir a la página
   await page.goto(url, { waitUntil: "networkidle2", timeout: 900000 });
 
   //Selector for the min temperature forecast
