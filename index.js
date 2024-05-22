@@ -1,7 +1,7 @@
 //This file will make the test in desktop view
 const puppeteer = require("puppeteer");
 
-const url = "https://siata.gov.co/siata_nuevo/";
+const url = "https://geoportal.siata.gov.co/geoportal/";
 
 async function testGeoportal() {
   const browser = await puppeteer.launch({
@@ -10,8 +10,11 @@ async function testGeoportal() {
   });
   const page = await browser.newPage();
 
-  // Set the viewport to 375x667 (iPhone X)
-  // await page.setViewport({ width: 375, height: 667 });
+  const mobileView = false;
+
+  mobileView
+    ? await page.setViewport({ width: 375, height: 667 }) // Set the viewport to iPhone X
+    : await page.setViewport({ width: 1920, height: 1080 }); // Set the viewport to Desktop
 
   //Ir a la página
   await page.goto(url, { waitUntil: "networkidle2", timeout: 900000 });
